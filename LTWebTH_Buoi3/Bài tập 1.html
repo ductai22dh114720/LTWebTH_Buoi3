@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Validate</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script lang="JavaScript">
+        function getValue(id) {
+            return document.getElementById(id).value.trim();
+        }
+        function showError(key,mess) {
+            document.getElementById(key + '_error').innerHTML = mess;
+        }
+        function Validate() {
+            var flag = true;
+        }
+        var MaSV = getValue('MaSV')
+        if (MaSV == '' || MaSV.length < 10 || !/^[a-zA-Z0-9]$/.test(MaSV)) {
+            flag = false;
+            showError('MaSV', 'Vui lòng kiểm tra lại MaSV');
+        }
+
+        var HoTen = getValue('HoTen')
+        if (HoTen == '' || HoTen.length < 30 || !/^[a-zA-Z]$/u.test(HoTen)) {
+            flag = false;
+            showError('HoTen', 'Vui lòng kiểm tra lại Họ và Tên');
+        }
+
+        var Tuoi = getValue('Tuoi')
+        if (Tuoi== '' || Tuoi.getValue < 18 || !/^[0-9]$/.test(Tuoi))
+        {
+            flag = false;
+            showError('Tuoi', 'Vui lòng kiểm tra lại Tuổi');
+        }
+
+        function Respond() {
+        var check = document.getElementsByName("checkbox");
+        }
+
+
+         var chuyenNganh = getValue('ChuyenNganh');
+
+         var soTruongElement = document.getElementById('SoTruong');
+
+         switch (chuyenNganh) {
+            case 'HeThong':
+            soTruongElement.textContent = 'Phân tích & Thiết kế';
+            break;
+            case 'PhanMem':
+                soTruongElement.textContent='Lập trình';
+                break;
+            case 'MangMayTinh':
+                soTruongElement.textContent = 'Quản lý mạng';
+                break;
+            default:
+                soTruongElement.textContent = '';
+
+        }
+       return flag;
+    </script>
+
+</head>
+<body>
+    <form>
+        <b> PHIẾU THAM GIA CLB TIN HỌC LUBU</b>
+        <table border="1" cellpadding="10">
+            <tr>
+                <td>Mã sinh viên:</td>
+                <td>
+                    <input type="text" id="MaSV" name="MaSV" value="" />
+                    <span id="MaSV_error"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>Họ và tên:</td>
+                <td>
+                    <input type="text" id="HoTen" name="HoTen" value="" />
+                    <span id="HoTen_error"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>Tuổi:</td>
+                <td>
+                    <input type="text" id="Tuoi" name="Tuoi" value="" />
+                    <span id="Tuoi_error"></span>
+                </td>
+            </tr>
+            <tr>
+
+                <td>
+                    Ngoại ngữ
+                </td>
+                <td>
+                    <input type="radio" name="checkbox" id="chon" value="" />Anh
+                    <input type="radio" name="checkbox" id="chon" value="" />Pháp
+                    <input type="radio" name="checkbox" id="chon" value="" />Nhật
+                </td>
+
+            </tr>
+            <tr>
+                <td>
+                    Chuyên ngành
+                </td>
+                <td>
+                    <select id="ChuyenNganh">
+                        <option value="">--Chọn--</option>
+                        <option value="HeThong"> Hệ thống</option>
+                        <option value="PhanMem">Phần Mềm</option>
+                        <option value="MangMayTinh">Mạng máy tính</option>
+                    </select>
+                    <span id="SoTruong"></span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;">
+
+                    <input type="submit" onclick="return Validate();" id="btn" name="btn" value="Đăng ký" />
+                </td>
+            </tr>
+        </table>
+
+    </form>
+</body>
+</html>

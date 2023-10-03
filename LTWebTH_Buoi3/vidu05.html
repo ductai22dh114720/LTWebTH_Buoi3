@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Validate</title>
+    <script language="javascript">
+        function Respond() {
+            var check = document.getElementsByName("checkbox");
+            if (check[0].checked == true) {
+                document.getElementById('huflit').innerHTML = 'Tôi là sinh viên khoa CNTT,trường HUFLIT';
+            }
+            if (check[1].checked == true) {
+                document.getElementById('huflit').innerHTML = 'Tôi không phải là sinh viên khoa CNTT, trường HUFLIT';
+            }
+        }
+    </script>
+</head>
+<body>
+    <h4>Bạn có phải là sinh viên khoa CNTT, trường huflit không?</h4>
+    <input type="radio" name="checkbox" id="chon" value="" /> Phải
+    <br />
+    <input type="radio" name="checkbox" id="chon" value="" /> Không phải
+    <br />
+    <input type="submit" value="Câu trả lời" onclick="Respond();" /> Phải
+    <br />
+    <span id="huflit"></span>
+</body>
+</html>

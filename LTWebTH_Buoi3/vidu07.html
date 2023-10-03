@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Validate</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <script language="JavaScript">
+        function genderChanged(obj) {
+            var message = document.getElementById('show_message');
+            var value = obj.value;
+            if (value === '') {
+                message.innerHTML = "Bạn chưa chọn giới tính";
+            }
+            else if (value === 'nam') {
+                message.innerHTML = "Bạn đã chọn giới tính nam";
+
+            }
+            else if (value === 'nữ') {
+                message.innerHTML = "Bạn đã chọn giới tính nữ";
+            }
+        };
+    </script>
+</head>
+<body>
+    <h2>Chọn giới tính</h2>
+    <p>In ra thông báo khi giới tính được thay đổi </p>
+    <select id="gender" onchange="genderChanged(this)">
+        <option value=""> --Chọn--</option>
+        <option value="nam">Nam</option>
+        <option value="nữ">Nữ</option>
+    </select>
+    <p style="color:red" id="show_message"></p>
+</body>
+</html>
